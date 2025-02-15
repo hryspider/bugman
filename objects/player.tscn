@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://omwy6grupew6"]
+
+[ext_resource type="Texture2D" uid="uid://doft31g0g6ffu" path="res://sprites/player.png" id="1_1gc4v"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_5s1ub"]
+[ext_resource type="Shader" uid="uid://clof635lqt8vi" path="res://shaders/player.tres" id="2_ne8t3"]
+[ext_resource type="AudioStream" uid="uid://b5cf6enf6q8d7" path="res://sfx/jump.wav" id="4_esqsr"]
+[ext_resource type="AudioStream" uid="uid://bgsqaepp3bqk6" path="res://sfx/walljump.wav" id="5_1mk0t"]
+[ext_resource type="AudioStream" uid="uid://4v5fdhf3eyy4" path="res://sfx/stick.wav" id="6_cb7l4"]
+[ext_resource type="AudioStream" uid="uid://bngwcy4aeqihs" path="res://sfx/die.wav" id="7_uqkop"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syaty"]
+shader = ExtResource("2_ne8t3")
+shader_parameter/ShellColor = Color(1, 1, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv6ke"]
+size = Vector2(7.5, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3f0h"]
+size = Vector2(6, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doq5f"]
+size = Vector2(10, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfgkc"]
+size = Vector2(7.5, 10)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+collision_layer = 4
+script = ExtResource("1_5s1ub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_syaty")
+texture = ExtResource("1_1gc4v")
+hframes = 7
+vframes = 2
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vv6ke")
+
+[node name="LockTimer" type="Timer" parent="."]
+wait_time = 0.38
+one_shot = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_k3f0h")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="ConveyorUpBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConveyorUpBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_doq5f")
+debug_color = Color(0.690196, 0.701961, 0, 0.419608)
+
+[node name="ConveyorLeftBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConveyorLeftBox"]
+shape = SubResource("RectangleShape2D_gfgkc")
+debug_color = Color(0.690196, 0.701961, 0, 0.419608)
+
+[node name="ConveyorRightBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConveyorRightBox"]
+shape = SubResource("RectangleShape2D_gfgkc")
+debug_color = Color(0.690196, 0.701961, 0, 0.419608)
+
+[node name="ConveyorDownBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConveyorDownBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_doq5f")
+debug_color = Color(0.690196, 0.701961, 0, 0.419608)
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_esqsr")
+volume_db = -9.0
+
+[node name="Walljump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1mk0t")
+volume_db = -5.0
+
+[node name="Stick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cb7l4")
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_uqkop")
+
+[connection signal="timeout" from="LockTimer" to="." method="_on_lock_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="die"]
+[connection signal="body_entered" from="ConveyorUpBox" to="." method="conveyor_enter_up"]
+[connection signal="body_exited" from="ConveyorUpBox" to="." method="conveyor_exit"]
+[connection signal="body_entered" from="ConveyorLeftBox" to="." method="conveyor_enter_left"]
+[connection signal="body_exited" from="ConveyorLeftBox" to="." method="conveyor_exit"]
+[connection signal="body_entered" from="ConveyorRightBox" to="." method="conveyor_enter_right"]
+[connection signal="body_exited" from="ConveyorRightBox" to="." method="conveyor_exit"]
+[connection signal="body_entered" from="ConveyorDownBox" to="." method="conveyor_enter_down"]
+[connection signal="body_exited" from="ConveyorDownBox" to="." method="conveyor_exit"]

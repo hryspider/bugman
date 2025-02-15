@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cap3j5hq0t2dq"]
+
+[ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_cau31"]
+[ext_resource type="Script" path="res://scripts/ghost_icon.gd" id="1_lcfcj"]
+
+[node name="GhostIcon" type="HBoxContainer" groups=["ghosticons"]]
+offset_right = 71.0
+offset_bottom = 11.0
+script = ExtResource("1_lcfcj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_cau31")
+text = "Ghostname"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_cau31")
+text = "Time"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("1_cau31")
+text = "Remove"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

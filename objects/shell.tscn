@@ -1,0 +1,148 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkl3wa1khv52h"]
+
+[ext_resource type="Script" path="res://scripts/shell.gd" id="1_nblio"]
+[ext_resource type="Texture2D" uid="uid://cnegogspaug1p" path="res://sprites/shell.png" id="1_roqbt"]
+[ext_resource type="Texture2D" uid="uid://r2jcit5dkwtk" path="res://sprites/shelloutline.png" id="3_dvdi8"]
+[ext_resource type="PackedScene" uid="uid://j6xj222xk5aj" path="res://objects/updatecolor.tscn" id="4_wvkbc"]
+[ext_resource type="AudioStream" uid="uid://dvm3w1aghtdj1" path="res://sfx/shellget.wav" id="5_1e33f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8stpl"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_824g1"]
+resource_name = "collect"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.7, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1097.5, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Outline:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_h3mg6"]
+resource_name = "respawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Outline:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxhl2"]
+_data = {
+"collect": SubResource("Animation_824g1"),
+"respawn": SubResource("Animation_h3mg6")
+}
+
+[node name="Shell" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_nblio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_roqbt")
+
+[node name="Outline" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_dvdi8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_8stpl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gxhl2")
+}
+
+[node name="Updatecolor" parent="." instance=ExtResource("4_wvkbc")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1e33f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

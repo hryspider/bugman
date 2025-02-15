@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci6o0308ou77o"]
+
+[ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_6eca5"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_6rmfq"]
+[ext_resource type="PackedScene" uid="uid://omwy6grupew6" path="res://objects/player.tscn" id="2_44got"]
+[ext_resource type="TileSet" uid="uid://dg0cfup4ukx5" path="res://tileset.tres" id="3_brda7"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6rmfq")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_44got")]
+position = Vector2(128, 175)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("3_brda7")
+rendering_quadrant_size = 8
+format = 2
+layer_0/tile_data = PackedInt32Array(1507328, 131072, 4, 1507329, 196608, 0, 1507330, 262144, 0, 1507331, 131072, 0, 1507332, 65536, 0, 1507333, 196608, 0, 1507334, 262144, 0, 1507335, 65536, 0, 1507336, 65536, 0, 1507337, 262144, 0, 1507338, 196608, 0, 1507339, 262144, 0, 1507340, 131072, 0, 1507341, 65536, 0, 1507342, 65536, 0, 1507343, 262144, 0, 1507344, 131072, 0, 1507345, 262144, 0, 1507346, 262144, 0, 1507347, 65536, 0, 1507348, 65536, 0, 1507349, 196608, 0, 1507350, 65536, 0, 1507351, 131072, 0, 1507352, 65536, 0, 1507353, 131072, 0, 1507354, 196608, 0, 1507355, 196608, 0, 1507356, 262144, 0, 1507357, 262144, 0, 1507358, 262144, 0, 1507359, 262144, 1, 1572864, 65536, 1, 1572865, 131072, 1, 1572866, 196608, 1, 1572867, 262144, 1, 1572868, 262144, 1, 1572869, 65536, 1, 1572870, 262144, 1, 1572871, 131072, 1, 1572872, 196608, 1, 1572873, 131072, 1, 1572874, 65536, 1, 1572875, 196608, 1, 1572876, 65536, 1, 1572877, 196608, 1, 1572878, 262144, 1, 1572879, 262144, 1, 1572880, 131072, 1, 1572881, 131072, 1, 1572882, 262144, 1, 1572883, 65536, 1, 1572884, 65536, 1, 1572885, 196608, 1, 1572886, 131072, 1, 1572887, 196608, 1, 1572888, 262144, 1, 1572889, 65536, 1, 1572890, 65536, 1, 1572891, 262144, 1, 1572892, 131072, 1, 1572893, 131072, 1, 1572894, 65536, 1, 1572895, 65536, 1, 1638400, 196608, 1, 1638401, 65536, 1, 1638402, 262144, 1, 1638403, 196608, 1, 1638404, 65536, 1, 1638405, 131072, 1, 1638406, 196608, 1, 1638407, 262144, 1, 1638408, 262144, 1, 1638409, 131072, 1, 1638410, 131072, 1, 1638411, 131072, 1, 1638412, 131072, 1, 1638413, 262144, 1, 1638414, 262144, 1, 1638415, 131072, 1, 1638416, 262144, 1, 1638417, 65536, 1, 1638418, 65536, 1, 1638419, 65536, 1, 1638420, 262144, 1, 1638421, 262144, 1, 1638422, 131072, 1, 1638423, 262144, 1, 1638424, 131072, 1, 1638425, 262144, 1, 1638426, 65536, 1, 1638427, 65536, 1, 1638428, 262144, 1, 1638429, 65536, 1, 1638430, 196608, 1, 1638431, 131072, 1, 0, 327680, 1, 65536, 327680, 2, 131072, 327680, 1, 196608, 327680, 3, 262144, 327680, 1, 327680, 327680, 3, 393216, 327680, 1, 458752, 327680, 4, 524288, 327680, 1, 589824, 327680, 2, 655360, 327680, 1, 720896, 327680, 3, 786432, 327680, 2, 851968, 327680, 3, 917504, 327680, 4, 983040, 327680, 4, 1048576, 327680, 1, 1114112, 327680, 1, 1179648, 327680, 4, 1245184, 327680, 1, 1310720, 327680, 3, 1376256, 327680, 3, 1441792, 327680, 3, 31, 0, 4, 65567, 0, 1, 131103, 0, 3, 196639, 0, 3, 262175, 0, 3, 327711, 0, 4, 393247, 0, 4, 458783, 0, 3, 524319, 0, 3, 589855, 0, 4, 655391, 0, 1, 720927, 0, 1, 786463, 0, 3, 851999, 0, 3, 917535, 0, 4, 983071, 0, 1, 1048607, 0, 1, 1114143, 0, 4, 1179679, 0, 3, 1245215, 0, 3, 1310751, 0, 1, 1376287, 0, 2, 1441823, 0, 1)
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -51.0
+offset_right = 43.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+focus_mode = 1
+theme = ExtResource("1_6eca5")
+text = "Return"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = -23.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+focus_mode = 1
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6eca5")
+theme_override_font_sizes/font_size = 18
+text = "Settings"
+
+[node name="Dead Shells" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+theme = ExtResource("1_6eca5")
+text = "Dead Shells"
+flat = true
+
+[node name="Timer" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+theme = ExtResource("1_6eca5")
+text = "Timer"
+flat = true
+
+[node name="Record Ghost" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+theme = ExtResource("1_6eca5")
+text = "Record Ghost"
+flat = true
+
+[node name="GhostList" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+focus_mode = 1
+
+[node name="Label6" type="Label" parent="HBoxContainer/GhostList"]
+layout_mode = 2
+theme = ExtResource("1_6eca5")
+theme_override_font_sizes/font_size = 18
+text = "Ghost Data"
+horizontal_alignment = 2
+
+[node name="LoadGhost" type="Button" parent="HBoxContainer/GhostList"]
+layout_mode = 2
+theme = ExtResource("1_6eca5")
+text = "Load Ghost"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open File(s)"
+initial_position = 1
+size = Vector2i(245, 175)
+borderless = true
+theme = ExtResource("1_6eca5")
+ok_button_text = "Open"
+file_mode = 1
+access = 2
+filters = PackedStringArray("*.csv")
+use_native_dialog = true
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/Dead Shells" to="." method="_on_dead_shells_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/Timer" to="." method="_on_timer_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/Record Ghost" to="." method="_on_record_ghost_toggled"]
+[connection signal="pressed" from="HBoxContainer/GhostList/LoadGhost" to="." method="_on_load_ghost_pressed"]
+[connection signal="files_selected" from="FileDialog" to="." method="_on_file_dialog_files_selected"]

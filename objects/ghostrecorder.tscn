@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://r8qaxm6frj40"]
+
+[ext_resource type="Script" path="res://scripts/ghostrecorder.gd" id="1_krthi"]
+[ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="2_et6ll"]
+
+[node name="GhostRecorder" type="Node"]
+process_mode = 3
+script = ExtResource("1_krthi")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Save Recording"
+initial_position = 1
+size = Vector2i(245, 175)
+borderless = true
+theme = ExtResource("2_et6ll")
+access = 2
+filters = PackedStringArray("*.csv")
+use_native_dialog = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+visible = false
+
+[node name="ColorChoose" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/ColorChoose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -64.0
+offset_right = 224.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("2_et6ll")
+edit_alpha = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorChoose"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme = ExtResource("2_et6ll")
+theme_override_font_sizes/font_size = 18
+text = "Pick your ghost color."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorChoose"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.5
+offset_top = -19.0
+offset_right = 13.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_et6ll")
+text = "Submit"
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="CanvasLayer/ColorChoose/Button" to="." method="save_file"]

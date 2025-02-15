@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://00d5ya0ue7i5"]
+
+[ext_resource type="Script" path="res://scripts/colorbrick.gd" id="1_cjg4b"]
+[ext_resource type="Texture2D" uid="uid://eomefxye4f3y" path="res://sprites/colorbrick.png" id="1_wef7n"]
+[ext_resource type="PackedScene" uid="uid://j6xj222xk5aj" path="res://objects/updatecolor.tscn" id="3_vmmyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcp7v"]
+size = Vector2(8, 8)
+
+[node name="SmallBrick" type="StaticBody2D"]
+modulate = Color(1, 0, 0, 1)
+collision_mask = 0
+script = ExtResource("1_cjg4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wef7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_dcp7v")
+
+[node name="Updatecolor" parent="." instance=ExtResource("3_vmmyc")]

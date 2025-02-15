@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://cbbp058lcul1n"]
+
+[ext_resource type="Script" path="res://scripts/shellbullet.gd" id="1_67yc6"]
+[ext_resource type="Texture2D" uid="uid://tkx3ks1wt44a" path="res://sprites/shellbullet.png" id="1_xi1nn"]
+[ext_resource type="AudioStream" uid="uid://bpcgc46c7w4b7" path="res://sfx/shoot.wav" id="3_2015h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0gyx"]
+atlas = ExtResource("1_xi1nn")
+region = Rect2(6, 0, 6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg0sl"]
+atlas = ExtResource("1_xi1nn")
+region = Rect2(12, 0, 6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgghd"]
+atlas = ExtResource("1_xi1nn")
+region = Rect2(0, 0, 6, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prv5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0gyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg0sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgghd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qve3l"]
+size = Vector2(7.5, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idfad"]
+size = Vector2(4, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw50g"]
+size = Vector2(8, 13)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_prv5p")
+frame_progress = 0.48583
+script = ExtResource("1_67yc6")
+
+[node name="BrickArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickArea"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_qve3l")
+
+[node name="GroundArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_idfad")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2015h")
+volume_db = -6.0
+autoplay = true
+
+[node name="PipeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+collision_priority = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeArea"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_aw50g")
+
+[node name="PipeTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="BrickArea" to="." method="_on_brick_area_body_entered"]
+[connection signal="body_entered" from="GroundArea" to="." method="_on_ground_area_body_entered"]
+[connection signal="area_entered" from="PipeArea" to="." method="_on_pipe_area_area_entered"]

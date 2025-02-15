@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3c0foaltkox"]
+
+[ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_t6xus"]
+
+[node name="CheckpointButton" type="Button"]
+custom_minimum_size = Vector2(50, 0)
+offset_right = 28.0
+offset_bottom = 11.0
+theme = ExtResource("1_t6xus")
+text = "Checkpoint name"
+autowrap_mode = 3

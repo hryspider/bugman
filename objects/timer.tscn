@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhea6vihoq316"]
+
+[ext_resource type="Script" path="res://scripts/speedruntimer.gd" id="1_l6jdq"]
+[ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_xiluv"]
+
+[node name="Timer" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_l6jdq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 32.0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 31.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xiluv")
+text = "TIME"
+vertical_alignment = 2
