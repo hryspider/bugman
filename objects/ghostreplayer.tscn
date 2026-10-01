@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddwkragn1tul8"]
 
 [ext_resource type="Texture2D" uid="uid://doft31g0g6ffu" path="res://sprites/player.png" id="1_beuxs"]
-[ext_resource type="Script" path="res://scripts/ghostreplayer.gd" id="2_4h5k0"]
+[ext_resource type="Script" uid="uid://budwfngs4hki" path="res://scripts/ghostreplayer.gd" id="2_4h5k0"]
 
 [node name="Sprite2D" type="Sprite2D"]
 clip_children = 1

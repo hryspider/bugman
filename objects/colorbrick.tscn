@@ -1,22 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://00d5ya0ue7i5"]
+[gd_scene format=3 uid="uid://00d5ya0ue7i5"]
 
-[ext_resource type="Script" path="res://scripts/colorbrick.gd" id="1_cjg4b"]
+[ext_resource type="Script" uid="uid://cmandpoe282bw" path="res://scripts/colorbrick.gd" id="1_cjg4b"]
 [ext_resource type="Texture2D" uid="uid://eomefxye4f3y" path="res://sprites/colorbrick.png" id="1_wef7n"]
 [ext_resource type="PackedScene" uid="uid://j6xj222xk5aj" path="res://objects/updatecolor.tscn" id="3_vmmyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcp7v"]
 size = Vector2(8, 8)
 
-[node name="SmallBrick" type="StaticBody2D"]
+[node name="SmallBrick" type="StaticBody2D" unique_id=1652538300]
 modulate = Color(1, 0, 0, 1)
 collision_mask = 0
 script = ExtResource("1_cjg4b")
+color_type = null
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1461066162]
 texture = ExtResource("1_wef7n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=72881767]
 visible = false
 shape = SubResource("RectangleShape2D_dcp7v")
 
-[node name="Updatecolor" parent="." instance=ExtResource("3_vmmyc")]
+[node name="Updatecolor" parent="." unique_id=1781068408 instance=ExtResource("3_vmmyc")]

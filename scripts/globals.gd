@@ -5,7 +5,8 @@ var shell_colors = [
 	Color.RED,
 	Color.YELLOW,
 	Color.MAGENTA,
-	Color.BLUE
+	Color.BLUE,
+	Color.CYAN
 	]
 
 var spawnpoint = null

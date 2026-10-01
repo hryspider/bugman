@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d7of2g7b0fng"]
 
-[ext_resource type="Script" path="res://scripts/checkpoint_select.gd" id="1_bmep3"]
+[ext_resource type="Script" uid="uid://chcmsplppokao" path="res://scripts/checkpoint_select.gd" id="1_bmep3"]
 [ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_nglk1"]
 [ext_resource type="PackedScene" uid="uid://cu3c0foaltkox" path="res://objects/checkpoint_button.tscn" id="3_koiud"]
 

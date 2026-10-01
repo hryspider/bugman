@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://hb8uaywm125c"]
 
-[ext_resource type="Script" path="res://scripts/room_transition.gd" id="1_gj52h"]
+[ext_resource type="Script" uid="uid://frgwdtdh3nkq" path="res://scripts/room_transition.gd" id="1_gj52h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i5www"]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbbp058lcul1n"]
+[gd_scene format=3 uid="uid://cbbp058lcul1n"]
 
-[ext_resource type="Script" path="res://scripts/shellbullet.gd" id="1_67yc6"]
+[ext_resource type="Script" uid="uid://d2ebntx7108d4" path="res://scripts/shellbullet.gd" id="1_67yc6"]
 [ext_resource type="Texture2D" uid="uid://tkx3ks1wt44a" path="res://sprites/shellbullet.png" id="1_xi1nn"]
 [ext_resource type="AudioStream" uid="uid://bpcgc46c7w4b7" path="res://sfx/shoot.wav" id="3_2015h"]
 
@@ -42,42 +42,42 @@ size = Vector2(4, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aw50g"]
 size = Vector2(8, 13)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=1071990518]
 sprite_frames = SubResource("SpriteFrames_prv5p")
 frame_progress = 0.48583
 script = ExtResource("1_67yc6")
 
-[node name="BrickArea" type="Area2D" parent="."]
+[node name="BrickArea" type="Area2D" parent="." unique_id=1926594986]
 collision_layer = 0
 collision_mask = 0
 priority = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickArea" unique_id=36079512]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_qve3l")
 
-[node name="GroundArea" type="Area2D" parent="."]
+[node name="GroundArea" type="Area2D" parent="." unique_id=268743324]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundArea" unique_id=1262948504]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_idfad")
 
-[node name="Shoot" type="AudioStreamPlayer" parent="."]
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=1547191255]
 stream = ExtResource("3_2015h")
 volume_db = -6.0
 autoplay = true
 
-[node name="PipeArea" type="Area2D" parent="."]
+[node name="PipeArea" type="Area2D" parent="." unique_id=738791042]
 collision_layer = 0
 collision_mask = 256
 collision_priority = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeArea" unique_id=799946192]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_aw50g")
 
-[node name="PipeTimer" type="Timer" parent="."]
+[node name="PipeTimer" type="Timer" parent="." unique_id=1944567980]
 
 [connection signal="body_entered" from="BrickArea" to="." method="_on_brick_area_body_entered"]
 [connection signal="body_entered" from="GroundArea" to="." method="_on_ground_area_body_entered"]

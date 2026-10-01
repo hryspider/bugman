@@ -25,18 +25,20 @@ func _on_ground_area_body_entered(body):
 
 func _on_brick_area_body_entered(body):
 	if !hit_something:
-		var particles = load("res://objects/brickparticle.tscn").instantiate()
-		particles.position = body.position
-		particles.modulate = body.modulate
-		get_parent().add_child(particles)
-		
-		body.queue_free()
-		queue_free()
+		body.break_brick()
 		hit_something = true
+		queue_free()
 
 
 func _on_pipe_area_area_entered(area):
 	var dir_difference = fposmod(rotation - (area.get_parent().rotation+PI/2), 2*PI)
+	
 	if abs(dir_difference-PI) > 2:
+		set_detecting(false)
+		hide()
 		area.get_parent().shell_enter(self)
+	
+func set_detecting(value):
+	$BrickArea.monitoring = value
+	$GroundArea.monitoring = value
 	

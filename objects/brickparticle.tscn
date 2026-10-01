@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmhw3rrxlmdmu"]
 
 [ext_resource type="Texture2D" uid="uid://lu1lsjqefsed" path="res://sprites/brickshard.png" id="1_uvt4i"]
-[ext_resource type="Script" path="res://scripts/brickparticle.gd" id="2_fvnr0"]
+[ext_resource type="Script" uid="uid://clwaijt4kg26n" path="res://scripts/brickparticle.gd" id="2_fvnr0"]
 [ext_resource type="AudioStream" uid="uid://dmgpwvuq4rq55" path="res://sfx/brickbreak.wav" id="2_mqyn7"]
 
 [node name="CPUParticles2D" type="CPUParticles2D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://e4dgmw00b7hk"]
 
 [ext_resource type="Texture2D" uid="uid://4v67spjjn5go" path="res://sprites/deathparticle.png" id="1_krcex"]
-[ext_resource type="Script" path="res://scripts/brickparticle.gd" id="2_pjda8"]
+[ext_resource type="Script" uid="uid://clwaijt4kg26n" path="res://scripts/brickparticle.gd" id="2_pjda8"]
 
 [node name="CPUParticles2D" type="CPUParticles2D"]
 emitting = false

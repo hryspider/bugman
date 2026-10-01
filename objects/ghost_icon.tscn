@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cap3j5hq0t2dq"]
 
 [ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_cau31"]
-[ext_resource type="Script" path="res://scripts/ghost_icon.gd" id="1_lcfcj"]
+[ext_resource type="Script" uid="uid://bjnderjs5nr5r" path="res://scripts/ghost_icon.gd" id="1_lcfcj"]
 
 [node name="GhostIcon" type="HBoxContainer" groups=["ghosticons"]]
 offset_right = 71.0

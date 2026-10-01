@@ -6,7 +6,8 @@ var colors = [
 	Color.RED,
 	Color.YELLOW,
 	Color.MAGENTA,
-	Color.BLUE
+	Color.BLUE,
+	Color.CYAN
 	]
 
 var color_type = 0

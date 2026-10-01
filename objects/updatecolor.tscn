@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://j6xj222xk5aj"]
 
-[ext_resource type="Script" path="res://scripts/updatecolor.gd" id="1_n5gvm"]
+[ext_resource type="Script" uid="uid://bfsljcp7m55h7" path="res://scripts/updatecolor.gd" id="1_n5gvm"]
 
 [node name="Updatecolor" type="Node"]
 script = ExtResource("1_n5gvm")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkl3wa1khv52h"]
 
-[ext_resource type="Script" path="res://scripts/shell.gd" id="1_nblio"]
+[ext_resource type="Script" uid="uid://cso1wdyuruw5g" path="res://scripts/shell.gd" id="1_nblio"]
 [ext_resource type="Texture2D" uid="uid://cnegogspaug1p" path="res://sprites/shell.png" id="1_roqbt"]
 [ext_resource type="Texture2D" uid="uid://r2jcit5dkwtk" path="res://sprites/shelloutline.png" id="3_dvdi8"]
 [ext_resource type="PackedScene" uid="uid://j6xj222xk5aj" path="res://objects/updatecolor.tscn" id="4_wvkbc"]
@@ -115,8 +115,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gxhl2"]
 _data = {
-"collect": SubResource("Animation_824g1"),
-"respawn": SubResource("Animation_h3mg6")
+&"collect": SubResource("Animation_824g1"),
+&"respawn": SubResource("Animation_h3mg6")
 }
 
 [node name="Shell" type="Area2D"]
@@ -137,7 +137,7 @@ shape = SubResource("CircleShape2D_8stpl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gxhl2")
+&"": SubResource("AnimationLibrary_gxhl2")
 }
 
 [node name="Updatecolor" parent="." instance=ExtResource("4_wvkbc")]

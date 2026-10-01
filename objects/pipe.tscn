@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://derykk8whpj04"]
 
-[ext_resource type="Script" path="res://scripts/pipe.gd" id="1_odofb"]
+[ext_resource type="Script" uid="uid://bayny3i1eb8tv" path="res://scripts/pipe.gd" id="1_odofb"]
 [ext_resource type="Texture2D" uid="uid://b5vq47l7rx40n" path="res://sprites/pipe.png" id="1_tvfx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8grsc"]
@@ -58,9 +58,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r04kf"]
 _data = {
-"RESET": SubResource("Animation_h77qy"),
-"exit": SubResource("Animation_oceva"),
-"squash": SubResource("Animation_yeduf")
+&"RESET": SubResource("Animation_h77qy"),
+&"exit": SubResource("Animation_oceva"),
+&"squash": SubResource("Animation_yeduf")
 }
 
 [node name="Pipe" type="StaticBody2D"]
@@ -85,5 +85,5 @@ shape = SubResource("RectangleShape2D_be6k1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_r04kf")
+&"": SubResource("AnimationLibrary_r04kf")
 }

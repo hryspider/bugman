@@ -5,7 +5,7 @@ extends Control
 var timer = 0
 
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://rooms/mainarea.tscn")
+	get_tree().change_scene_to_file("res://rooms/levelselect.tscn")
 
 
 func quit():

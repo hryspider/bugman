@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://r8qaxm6frj40"]
 
-[ext_resource type="Script" path="res://scripts/ghostrecorder.gd" id="1_krthi"]
+[ext_resource type="Script" uid="uid://b60ndrafe54aw" path="res://scripts/ghostrecorder.gd" id="1_krthi"]
 [ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="2_et6ll"]
 
 [node name="GhostRecorder" type="Node"]

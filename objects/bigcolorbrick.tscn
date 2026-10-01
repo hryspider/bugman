@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvvjjc8cnp2bk"]
 
-[ext_resource type="Script" path="res://scripts/colorbrick.gd" id="1_2tadn"]
+[ext_resource type="Script" uid="uid://cmandpoe282bw" path="res://scripts/colorbrick.gd" id="1_2tadn"]
 [ext_resource type="Texture2D" uid="uid://b1gwo5ehlqq0d" path="res://sprites/bigcolorbrick.png" id="2_dhatx"]
 [ext_resource type="PackedScene" uid="uid://j6xj222xk5aj" path="res://objects/updatecolor.tscn" id="3_8yi5i"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhea6vihoq316"]
 
-[ext_resource type="Script" path="res://scripts/speedruntimer.gd" id="1_l6jdq"]
+[ext_resource type="Script" uid="uid://thd5nqaqst1e" path="res://scripts/speedruntimer.gd" id="1_l6jdq"]
 [ext_resource type="Theme" uid="uid://bkprcxi6wkiy" path="res://default.tres" id="1_xiluv"]
 
 [node name="Timer" type="CanvasLayer"]
